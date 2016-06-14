@@ -17,10 +17,64 @@ svg {
   Keyframes
 --------------------------- */
 
+@keyframes move {
+	0% {
+		transform: translateY(300px);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+	80% {
+		transform: translateY(10px);
+	}
+}
 
+@keyframes grow-rotate {
+	50% {
+		transform: rotate(-5deg) scale(1.1);
+		fill: #fdf097;
+	}
+}
+
+@keyframes offset {
+	60% {
+		stroke-opacity: 1;
+	}
+	100% {
+		stroke-dashoffset: 0;
+	}
+}
 
 /* --------------------------
   SVG Styles
 --------------------------- */
 
+.badge * {
+	transform-origin: 50% 50%;
+}
 
+.star {
+	animation: 	move .5s ease-out backwards,
+				grow-rotate .5s;
+}
+
+.star:nth-of-type(2) {
+	animation-delay: 0s, 1.5s;
+}
+
+.star:nth-of-type(1) {
+	animation-delay: .5s, 2s;
+}
+
+.star:nth-of-type(3) {
+	animation-delay: 1s, 2.5s;
+}
+
+.stars-bg {
+	stroke-opacity: 0;
+	stroke-width: 5;
+	stroke-dasharray: 815;
+	stroke-dashoffset: 815;
+
+	animation: offset 1s 3s linear backwards;
+}
